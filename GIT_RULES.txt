@@ -1,0 +1,34 @@
+Normaly the project will have just one branch (the master branch), but can have a branch called experimental.
+
+Branchs:
+
+master 			(where is the stable version and currently running in the servers)
+experimental 	(the pull requests should target this branch, because the development code goes here and then when its ready goes
+					to master and onto production)
+
+Instructions:
+
+Clone the project and create a branch called test or other name where you will test the functionality you want to implement: 
+
+git clone (url of the project on github)
+cd youxuse
+git checkout experimental
+
+2 - works on the functionality you want to implement
+
+3 - Groups small and large changes in a single commit of your contribution: 
+
+Note: In the code comment what you did; 
+Note: Test well the functionality you want to implement; 
+Note: In the commit message describing what you modified: folders, files, images,...; 
+
+git commit -m "Post what you did"
+
+4 - You can pull to the server, doing: 
+git push myfork teste 
+
+5 - When your work was pulled to your fork, you must notify the developer of the site. This is called a pull request, and the site GitHub has a button "pull request" that automatically sends a message to the developer's account.
+
+Note: Only users that have signed the Contributor License Agreement can contribute;
+
+See Readme to know how you can sign the Contributor License Agreement.

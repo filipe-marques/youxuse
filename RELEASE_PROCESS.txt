@@ -1,0 +1,9 @@
+The release process of this project, will be when has:
+
+bug fixes
+new features
+
+The new version will be tagged acordingly with a number:
+
+(big changes)(little changes)(bug fixes or very little changes)
+	X.				X.						X

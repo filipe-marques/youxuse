@@ -1,0 +1,34 @@
+/* TEAM */
+Name: Filipe Marques
+Idea of the website: Filipe Marques
+Idea of the YouXuse and youxuse name: Filipe Marques
+Copyright of YouXuse and youxuse name: Filipe Marques
+Role: Developer
+GeoLocation: Portugal
+Facebook: https://www.facebook.com/profile.php?id=100004437103780
+Google+: https://plus.google.com/110434741360705159101
+GitHub address: https://www.github.com/filipe-marques
+
+YouXuse and youxuse are a Trademark and are protected by Copyright C 2013 2014
+The YouXuse and youxuse project is protected by Copyright C 2013 2014 and the 
+source code is licensed under the GNU AFFERO GENERAL PUBLIC LICENSE V.3
+
+Others developers, supporters, translators: // your name can be here, so please contribute
+
+/* THANKS */
+Free Software Foundation (GNU AFFERO GENERAL PUBLIC LICENSE V.3 and GNU FREE DOCUMENTATION LICENSE v.1.3): http://www.fsf.org/
+Humans txt: http://www.humanstxt.org/
+Robots txt: http://www.robotstxt.org/
+
+
+/* SITE */
+Last update: 2013-12-20
+
+Standards: 	BOOTSTRAP THEME ROLLER: http://www.bootstrapthemeroller.com/index.html
+		TWITTER BOOTSTRAP FRONT-END v2.3.2: http://getbootstrap.com
+		PHP: http://www.php.net
+		PYTHON: http://www.python.org
+		GLYPHICONS: http://glyphicons.com
+
+Facebook oficial project pages:
+Google+ oficial project pages:

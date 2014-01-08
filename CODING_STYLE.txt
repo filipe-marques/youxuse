@@ -1,0 +1,159 @@
+The coding style must be very clean, indented, well commented, like in the examples shown:
+
+for php and mysql:
+
+<?php
+
+$name = mysql_escape_string(htmlspecialchars(trim($_POST['nome']), ENT_QUOTES));
+$email = mysql_escape_string(htmlspecialchars(trim($_POST['email']), ENT_QUOTES));
+
+if (empty($name) or empty($email)) {
+    header("Location: ../signup.php");
+    exit();
+} else {
+    $sql = "INSERT INTO users (nome, email) VALUES ('$name','$email')";
+    $consulta = mysql_query($sql);
+    if (($consulta)) {
+        header("Location: ../activate_account.php");
+        exit();
+    } else {
+        header("Location: ../signup.php");
+        exit();
+    }
+    mysql_free_result($consulta);
+    mysql_close();
+}
+?>
+
+for php and html:
+
+<html>
+	<header>
+		<title>
+		</title>
+	</header>
+<body>          
+
+        <?php include ("hf/header.php"); ?>
+
+        <div class="container">
+            
+            <?php
+            echo ("O seu nome &eacute; " . $_SESSION['nome'] . "<br> e seu e&dash;mail &eacute; " . $_SESSION['email'] . "<br> a sua alcunha &eacute; " . $_SESSION['nickname'] . 
+                    "<br> e a sua idade &eacute; " . $_SESSION['idade'] . " anos <br> e está registado desde " . $_SESSION['registado'] . ".");
+
+
+            $getanun = $_GET['anuncio'];
+            $getdefin = $_GET['defini'];
+
+            if ($getanun == 'criar') {
+                echo ("<form class=\"form-signin\" action=\"process/new_annou.php\" method=\"POST\" enctype=\"multipart/form-data\">
+                    
+                    <h2 class=\"form-signin-heading\"><p class=\"text-center\">Cria um anuncio</p></h2>
+                    <legend>insere uma imagem</legend>
+                    <input type=\"file\" name=\"imagem\" id=\"imagem\" class=\"input-block-level\" placeholder=\"Imagem da peça\">
+                    <legend>nome exemplo: 'Placa gráfica NVIDIA GeForce 6400'</legend>
+                    <input type=\"text\" name=\"nome\" id=\"nome\" class=\"input-block-level\" placeholder=\"Nome da peça\">
+                    <legend>o estado da peça</legend>
+                    <select name=\"estado\" id=\"estado\">
+                        <option value=\"bom\">Bom</option>
+                        <option value=\"muito bom\">Muito Bom</option>
+                        <option value=\"excelente\">Excelente</option>
+                    </select>
+                    <legend>o preço (poderá posteriormente alterar o preço em Definições)</legend>
+                    <input type=\"text\" name=\"preco\" id=\"preco\" class=\"input-block-level\" placeholder=\"Preço da peça\">
+                    <legend>categoria da peça</legend>
+                    <select name=\"peca\" id=\"peca\">
+                        <option value=\"\"></option>
+                    </select>
+                    <legend>alguma informação adicional</legend>
+                    <input type=\"text\" name=\"adicional\" id=\"adicional\" class=\"input-block-level\" placeholder=\"Informação adicional\">
+                    <p class=\"text-center\"><button class=\"btn btn-large btn-success\" type=\"submit\">Criar An&uacute;ncio <i class=\"icon-upload icon-white\"></i></button></p>
+                </form>");
+            }
+
+            if ($getdefin == 'definicoes') {
+                echo 'Sim';
+            }
+            ?>
+
+
+
+            <?php include ("hf/footer.php"); ?>
+
+        </div> <!-- /container -->
+
+    </body>
+</html>
+
+for html:
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Youxuse - Sell &AMP; Buy used components of tecnology</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <!-- Le styles -->
+        <link href="resources/css/bootstrap.css" rel="stylesheet" type="text/css">
+        <style type="text/css">
+            body {
+                padding-top: 60px;
+                padding-bottom: 40px;
+            }
+
+            .form-signin {
+                max-width: 400px;
+                padding: 19px 29px 29px;
+                margin: 0 auto 20px;
+                background-color: #fff;
+                border: 1px solid #e5e5e5;
+                -webkit-border-radius: 5px;
+                -moz-border-radius: 5px;
+                border-radius: 5px;
+                -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+                -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+                box-shadow: 0 1px 2px rgba(0,0,0,.05);
+            }
+            .form-signin .form-signin-heading,
+            .form-signin .checkbox {
+                margin-bottom: 10px;
+            }
+        </style>
+        <link href="resources/css/bootstrap-responsive.css" rel="stylesheet" type="text/css">
+
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+          <script src="../assets/js/html5shiv.js"></script>
+        <![endif]-->
+
+        <!-- Fav and touch icons -->
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+        <link rel="shortcut icon" href="../assets/ico/favicon.png">
+    </head>
+
+    <body>
+        <?php include ("hf/header.php"); ?>
+
+        <h2><p class="text-center">Tu tens um e&dash;mail que n&atilde;o &eacute; v&aacute;lido e tentas&dash;te entrar?!</p></h2>
+        <h2><p class="text-center">ou</p></h2>
+        <h2><p class="text-center">Ainda n&atilde;o activas&dash;te a tua conta de utilizador!</p></h2>
+        <div class="container">
+
+            <p class="text-center"><a href="signup.php">Regista&dash;te</a>, mas desta vez escreve um endere&ccedil;o de e&dash;mail v&aacute;lido!</p>
+            <p class="text-center">ou</p>
+            <p class="text-center">Vai ao teu e&dash;mail e abre a mensagem! (A mensagem possivelmente estar&aacute; na sec&ccedil;&atilde;o do Spam!)</p>
+
+
+            <?php include ("hf/footer.php"); ?>
+        </div> <!-- /container -->
+
+    </body>
+</html>
+
