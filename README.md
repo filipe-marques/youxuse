@@ -16,7 +16,7 @@ The website or platform [YouXuse](http://youxuse.com) is Free Software and is re
 
 ## Community
 
-Feel free to contribute with your feedback in the oficial pages: [YouXuse in Facebook]() and [YouXuse in Google+]().
+Feel free to contribute with your feedback in the oficial pages: [YouXuse in Facebook](https://www.facebook.com/youxuse) and [YouXuse in Google+](https://plus.google.com/116778377892072300095).
 
 ## Code of Conduct
 
