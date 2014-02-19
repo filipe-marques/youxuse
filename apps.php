@@ -19,28 +19,31 @@
  * 
  * For full reading of the license see the folder "license" 
  * 
- */
+ */ 
 session_name("YouXuse");
 
-require_once("process/functions.php");
+require_once ("session/check_user.php");
+require_once ("process/functions.php");
+require_once ("store.php");
+
+$db = new mysqli("localhost", "root", "ff", "store");
+if ($db->connect_error){
+	die("Erro em aceder a base de dados !");
+	//echo "Erro em aceder a base de dados (" . $db->connect_errno . ")" . $db->connect_error;
+}
 
 // check if it has session created, if yes search for the strings of country, if no do nothing
 if (session_start()){
 	check_session_idiom();
 }
 
-if (!isset($_GET['lang'])) {
-	if (!isset($_COOKIE['lang'])){
-		require ("lang/uk.php");
-	} else {
-		//idiom_geoip();
-		idiom_without_session($_COOKIE['lang']);
-	}
-} else {
-	$la = mysql_escape_string(htmlspecialchars(htmlentities(trim($_GET['lang'])), ENT_QUOTES));
-	idiom_without_session($la);
-	setcookie("lang", $la, time()+3600, "youxuse.com");
-}
+nothing();
+is_admin();
+generate_new_session_id();
+
+/*if (isset($_POST['submit'])){
+	setcookie("buy", "vicky", time()+3600, "youxuse.com/apps.php");
+}*/
 
 ?>
 <!DOCTYPE html>
@@ -61,7 +64,7 @@ if (!isset($_GET['lang'])) {
             }
 
             .form-signin {
-                max-width: 600px;
+                max-width: 400px;
                 padding: 19px 29px 29px;
                 margin: 0 auto 20px;
                 background-color: #fff;
@@ -100,42 +103,91 @@ if (!isset($_GET['lang'])) {
 
         <?php include ("hf/header.php"); ?>
 
-		<div>
-			<?php 
-				require("pub.php");
-			?>
-		</div>
-		
-		<hr>
-		
         <div class="container">
-
-            <h2><p class="text-center"><?php echo LABEL_WIKI_TEXT1; ?></p></h2>
-
-            <!-- Example row of columns -->
-            <div class="row">
-                <div class="span4">
-                    <h2><?php echo LABEL_WIKI_TEXT2; ?></h2>
-                    <p><?php echo LABEL_WIKI_TEXT3; ?></p>
-                    <p><a class="btn btn-success" href="wikiannou.php?search=DM01"> Youxuse Wiki </a></p>
-                </div>
-                <div class="span4">
-                    <h2><?php echo LABEL_WIKI_TEXT4; ?></h2>
-                    <p><?php echo LABEL_WIKI_TEXT5; ?></p>
-                    <p><a class="btn btn-info" href="user.php?wiki=new"><?php echo LABEL_WIKI_TEXT6; ?> <i class="icon-time icon-white"></i></a></p>
-                </div>
-                <div class="span4">
-                    <h2><?php echo LABEL_WIKI_TEXT7; ?></h2>
-                    <p><?php echo LABEL_WIKI_TEXT8; ?></p>
-                    <p><a class="btn btn-danger" href="user.php?wiki=new"><?php echo LABEL_WIKI_TEXT9; ?></a></p>
-                </div>
-            </div>
+            <div class="container">
             
-			<div>
-				<?php 
-					require("pub.php");
-				?>
-			</div>
+            <p class="lead"><?php echo LABEL_APPS_TEXT1; ?></p>
+            
+			<table class="table">
+				<caption><h3><?php echo LABEL_APPS_TEXT2; ?></h3></caption>
+				<tbody>
+					<tr>
+						<td>
+							<?php echo LABEL_APPS_TEXT3; ?>
+						</td>
+						<td>
+							<?php echo LABEL_APPS_TEXT4; ?>
+						</td>
+						<td>
+							<?php echo LABEL_APPS_TEXT5; ?>
+						</td>
+						<td>
+							<?php echo LABEL_APPS_TEXT6; ?>
+						</td>
+						<td>
+							<?php echo LABEL_APPS_TEXT7; ?>
+						</td>
+						<td>
+							<?php echo LABEL_APPS_TEXT8; ?>
+						</td>
+						<td>
+							
+						</td>
+					</tr>
+					<?php
+						// selecting data in database table
+						if (($result = $db->query("SELECT * FROM programs"))){
+								while($row = $result->fetch_object()){
+									echo ("<tr>
+												<td>
+													" . $row->name . "
+												</td>
+												<td>
+													" . $row->features . "
+												</td>
+												<td>
+													" . $row->consolegui . "
+												</td>
+												<td>");
+													if (!empty($row->name_package_x86)){
+														echo("<a href=\"download/" . $row->name_package_x86 . "\">" . $row->arch . "</a>");
+													}
+													if (!empty($row->name_package_x64)){
+														echo("<a href=\"download/" . $row->name_package_x64 . "\">" . $row->arch . "</a>");
+													}
+											echo("</td>
+												<td>
+													" . $row->version . "
+												</td>
+												<td>
+													" . $row->operatingsys . "
+												</td>
+												<td>
+													<form action=\"https://www.paypal.com/cgi-bin/webscr\" method=\"POST\" target=\"_top\">
+														<input type=\"hidden\" name=\"cmd\" value=\"_s-xclick\">
+														<input type=\"hidden\" name=\"hosted_button_id\" value=\"" . $id_of_button . "\">
+														<input type=\"hidden\" name=\"item_number\" id=\"paypalno\" value=\"001\">
+														<input type=\"hidden\" name=\"item_name\" id=\"itemname\" value=\"Vicky\">
+														<input type=\"hidden\" name=\"email\" id=\"email\" value=\"" . $_SESSION['email'] . "\">
+														<input type=\"image\" src=\"https://www.paypalobjects.com/webstatic/en_US/btn/btn_buynow_cc_171x47.png\" border=\"0\" name=\"submit\" alt=\"PayPal - The safer, easier way to pay online!\">
+														<img alt=\"\" border=\"0\" src=\"https://www.paypalobjects.com/pt_PT/i/scr/pixel.gif\" width=\"1\" height=\"1\">
+													</form>
+												</td>
+											</tr>");
+								}
+								$result->free();
+								$result->close();
+								$db->close();
+						} else {
+							echo 'No were found in the table!';
+							$db->close();
+						}
+					?>
+					</tbody>
+				</table>
+				
+            </div> <!-- /container -->
+
             <?php include ("hf/footer.php"); ?>
 
         </div> <!-- /container -->
@@ -156,5 +208,6 @@ if (!isset($_GET['lang'])) {
         <script type="text/javascript" src="resources/js/bootstrap-collapse.js"></script>
         <script type="text/javascript" src="resources/js/bootstrap-carousel.js"></script>
         <script type="text/javascript" src="resources/js/bootstrap-typeahead.js"></script>
+
     </body>
 </html>

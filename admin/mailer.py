@@ -66,7 +66,7 @@ def main():
 				How are you?<br>
 				<h2>You missed some action, this week, in <a href="http://youxuse.com">youxuse.com</a></h2><br>
 				<strong><h3>Check out your account, your annoucements, your messages.</h3><strong><br>
-				Don't forget to spread the word about the website to your friends and give your feedback in the oficial pages in <a>google+</a> and in <a href="https://www.facebook.com/youxuse">Youxuse</a><br>
+				Don't forget to spread the word about the website to your friends and give your feedback in the oficial pages in <a href="https://plus.google.com/u/0/b/116778377892072300095">Google+</a> and in <a href="https://www.facebook.com/youxuse">Facebook</a><br>
 				Maybe you need to modify, personalize the hardware of your pc, laptop, netbook, smartphone, don't miss this oportunity to earn money !<br>
 				</p>
 			</body>

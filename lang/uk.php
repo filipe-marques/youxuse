@@ -33,6 +33,22 @@ define ("LABEL_PAGE_TITLE_TEXT","YouXuse&trade;&copy; Buy & Sell &dash; used par
 // pub.php
 define ("LABEL_PUB_TEXT1","Sponsored Links");
 
+// apps.php
+define ("LABEL_APPS_TEXT1","Selling apps is one of the forms of financing the project, so if you are interested in any of these programs, please buy the license key to use them!");
+define ("LABEL_APPS_TEXT2","Apps Available:");
+define ("LABEL_APPS_TEXT3","Name:");
+define ("LABEL_APPS_TEXT4","Features:");
+define ("LABEL_APPS_TEXT5","Console / GUI (Graphical User Interface):");
+define ("LABEL_APPS_TEXT6","x86 / x64:");
+define ("LABEL_APPS_TEXT7","Version:");
+define ("LABEL_APPS_TEXT8","Operating Systems:");
+
+// sucess.php
+define ("LABEL_SUCESS_TEXT1","Soon you will be sent an email with the message to your e-mail with the license key in it!");
+define ("LABEL_SUCESS_TEXT2","Thanks for buying!");
+define ("LABEL_SUCESS_TEXT3","Stay tuned for more apps in ");
+define ("LABEL_SUCESS_TEXT4"," page!");
+
 // hf/header.php
 define ("LABEL_HEADER_TEXT1","Begin");
 define ("LABEL_HEADER_TEXT2","View ads");
@@ -65,6 +81,8 @@ define ("LABEL_FOOTER_TEXT10",", see in more detail on page");
 define ("LABEL_FOOTER_TEXT11"," of project YouXuse&trade;&copy;");
 define ("LABEL_FOOTER_TEXT12","Today this page has been accessed: ");
 define ("LABEL_FOOTER_TEXT13","times!");
+define ("LABEL_FOOTER_TEXT14","Apps");
+define ("LABEL_FOOTER_TEXT15","You gonna need to sign in!");
 
 // process/functions.php
 // translate_country()

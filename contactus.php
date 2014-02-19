@@ -30,12 +30,18 @@ if (session_start()){
 }
 
 if (!isset($_GET['lang'])) {
-    //require ("lang/uk.php");
-    idiom_geoip();
+	if (!isset($_COOKIE['lang'])){
+		require ("lang/uk.php");
+	} else {
+		//idiom_geoip();
+		idiom_without_session($_COOKIE['lang']);
+	}
 } else {
-    $la = mysql_escape_string(htmlspecialchars(htmlentities(trim($_GET['lang'])), ENT_QUOTES));
-    idiom_without_session($la);
+	$la = mysql_escape_string(htmlspecialchars(htmlentities(trim($_GET['lang'])), ENT_QUOTES));
+	idiom_without_session($la);
+	setcookie("lang", $la, time()+3600, "youxuse.com");
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -87,8 +93,7 @@ if (!isset($_GET['lang'])) {
         <div class="container">
 
             <p class="lead">
-            <!-- LINKS DAS PÁGINAS SOCIAIS DO FACEBOOK E DO GOOGLE+ -->
-                <?php echo LABEL_CONTACTUS_TEXT1; ?> <a href="">google+</a> <?php echo LABEL_CONTACTUS_TEXT2; ?> <a href="">facebook</a> ! 
+                <?php echo LABEL_CONTACTUS_TEXT1; ?> <a href="https://plus.google.com/u/0/b/116778377892072300095">google+</a> <?php echo LABEL_CONTACTUS_TEXT2; ?> <a href="https://www.facebook.com/youxuse">facebook</a> ! 
             </p>
 
             <?php include ("hf/footer.php"); ?>

@@ -33,6 +33,22 @@ define ("LABEL_PAGE_TITLE_TEXT","YouXuse&trade;&copy; &dash; Comprar y Vender pa
 // pub.php
 define ("LABEL_PUB_TEXT1","Enlaces Patrocinados");
 
+// apps.php
+define ("LABEL_APPS_TEXT1","La venta de Apps es una de las formas de financiación del proyecto, por lo que si está interesado en alguno de estos programas o si necesita alguno de ellos, por favor, comprar la clave de licencia para usarlos!");
+define ("LABEL_APPS_TEXT2","Aplicaciones disponibles:");
+define ("LABEL_APPS_TEXT3","Nombre:");
+define ("LABEL_APPS_TEXT4","Características:");
+define ("LABEL_APPS_TEXT5","Console / GUI (Graphical User Interface):");
+define ("LABEL_APPS_TEXT6","x86 / x64:");
+define ("LABEL_APPS_TEXT7","Versión:");
+define ("LABEL_APPS_TEXT8","Sistemas operativos:");
+
+// sucess.php
+define ("LABEL_SUCESS_TEXT1","Pronto se le enviará un email con el mensaje a su e-mail con la clave de licencia en ella!");
+define ("LABEL_SUCESS_TEXT2","Gracias por comprar!");
+define ("LABEL_SUCESS_TEXT3","Estén atentos para más aplicaciones de ");
+define ("LABEL_SUCESS_TEXT4"," página!");
+
 // hf/header.php
 define ("LABEL_HEADER_TEXT1","Primero");
 define ("LABEL_HEADER_TEXT2","Ver Anuncios");
@@ -65,6 +81,8 @@ define ("LABEL_FOOTER_TEXT10",", ver con más detalle en la página");
 define ("LABEL_FOOTER_TEXT11","do proyecto YouXuse&trade;&copy;");
 define ("LABEL_FOOTER_TEXT12","Hoy esta página ha sido visitada: ");
 define ("LABEL_FOOTER_TEXT13","tiempos!");
+define ("LABEL_FOOTER_TEXT14","Apps");
+define ("LABEL_FOOTER_TEXT15","Ven su cuenta de usuario!");
 
 // process/functions.php
 // translate_country()

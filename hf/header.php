@@ -73,24 +73,11 @@ require_once ("session/check_user.php");
                     if (isset($_SESSION['prinome'])) {
 						$all_name = ($_SESSION['prinome'] . " " . $_SESSION['ultnome']);
                         echo("<li class=\"dropdown\">
-                            <a class=\"dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\">
+                            <a class=\"dropdown-toggle\" href=\"user.php?page=initial\">
                             " . sexo() . " " . $all_name . " " . get_gravatar($_SESSION['email'], $size, $ddd, $rr, true, '') . "
-                            <b class=\"caret\"></b> <i class=\"icon-user icon-white\"></i></a>
-                            <ul class=\"dropdown-menu\">
-                            <li>
-                            <a href=\"user.php?page=initial\">" . LABEL_HEADER_TEXT13 . "</a>
-                            </li>
-                            <li>
-                            <a href=\"user.php?see=admin\">" . LABEL_HEADER_TEXT14 . "</a>
-                            </li>
-                            <li>
-                            <a href=\"user.php?see=information\">" . LABEL_HEADER_TEXT15 . "</a>
-                            </li>
-                            <li>
-                            <a href=\"logout.php\">" . LABEL_HEADER_TEXT16 . " <i class=\"icon-user\"></i></a>
-                            </li>
-                            </ul>
+                            </a>
                             </li>");
+                            echo("<li><a href=\"logout.php\">" . LABEL_HEADER_TEXT16 . " <i class=\"icon-user icon-white\"></i></a></li>");
                     }
                     ?>
                 </ul>

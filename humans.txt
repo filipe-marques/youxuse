@@ -30,5 +30,5 @@ Standards: 	BOOTSTRAP THEME ROLLER: http://www.bootstrapthemeroller.com/index.ht
 		PYTHON: http://www.python.org
 		GLYPHICONS: http://glyphicons.com
 
-Facebook oficial project pages:
-Google+ oficial project pages:
+Facebook oficial project pages: https://www.facebook.com/youxuse
+Google+ oficial project pages: https://plus.google.com/u/0/b/116778377892072300095

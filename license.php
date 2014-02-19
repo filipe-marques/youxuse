@@ -30,12 +30,18 @@ if (session_start()){
 }
 
 if (!isset($_GET['lang'])) {
-	//require ("lang/uk.php");
-	idiom_geoip();
+	if (!isset($_COOKIE['lang'])){
+		require ("lang/uk.php");
+	} else {
+		//idiom_geoip();
+		idiom_without_session($_COOKIE['lang']);
+	}
 } else {
 	$la = mysql_escape_string(htmlspecialchars(htmlentities(trim($_GET['lang'])), ENT_QUOTES));
-    idiom_without_session($la);
+	idiom_without_session($la);
+	setcookie("lang", $la, time()+3600, "youxuse.com");
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

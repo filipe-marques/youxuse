@@ -44,7 +44,7 @@ function translate_country($country){
    }
 }
  
-function idiom_geoip(){
+/*function idiom_geoip(){
 	$country = geoip_country_code_by_name($_SERVER['REMOTE_ADDR']);
 	switch ($country) {
 		case 'pt':
@@ -68,7 +68,7 @@ function idiom_geoip(){
 		default:
 			require_once ("lang/uk.php");
 	}
-}
+}*/
  
 function idiom_without_session($id){
 	switch ($id) {

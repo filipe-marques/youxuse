@@ -637,6 +637,9 @@ generate_new_session_id();
 							<a class=\"btn btn-primary\" href=\"user.php?see=information\">" . LABEL_USER_TEXT75 . "</a>
 						</td>
 						<td>
+							<a class=\"btn btn-primary\" href=\"user.php?see=admin\">" . LABEL_HEADER_TEXT14 . "</a>
+						</td>
+						<td>
 							<a class=\"btn btn-danger\" href=\"user.php?klrt=message\">" . LABEL_USER_TEXT76 . "</a>
 						</td>
 					</tr>

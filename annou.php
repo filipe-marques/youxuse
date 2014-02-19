@@ -35,12 +35,18 @@ if (session_start()){
 }
 
 if (!isset($_GET['lang'])) {
-    //require ("lang/uk.php");
-    idiom_geoip();
+	if (!isset($_COOKIE['lang'])){
+		require ("lang/uk.php");
+	} else {
+		//idiom_geoip();
+		idiom_without_session($_COOKIE['lang']);
+	}
 } else {
-    $la = mysql_escape_string(htmlspecialchars(htmlentities(trim($_GET['lang'])), ENT_QUOTES));
-    idiom_without_session($la);
+	$la = mysql_escape_string(htmlspecialchars(htmlentities(trim($_GET['lang'])), ENT_QUOTES));
+	idiom_without_session($la);
+	setcookie("lang", $la, time()+3600, "youxuse.com");
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -303,7 +309,7 @@ if (!isset($_GET['lang'])) {
                                             }
                                             if (empty($image) and empty($nome) and empty($estado) and empty($preco) and empty($descricao) and empty($da)) {
                                                 echo ("<p class=\"lead\">" . LABEL_ANNOU_TEXT10 . " 
-                                                    <a href=\"user.php?user=criaranuncio\">" . LABEL_ANNOU_TEXT11 . "</a> " . LABEL_ANNOU_TEXT12 . "</p>");
+                                                    <a data-toggle=\"tooltip\" title=\"" . LABEL_FOOTER_TEXT15 . "\" href=\"user.php?user=criaranuncio\">" . LABEL_ANNOU_TEXT11 . "<i class=\"icon-question-sign\"></i></a> " . LABEL_ANNOU_TEXT12 . "</p>");
                                             }
                                         }
                                         echo ("</ul>");

@@ -20,15 +20,37 @@
  * For full reading of the license see the folder "license" 
  * 
  */
-
 session_name("YouXuse");
 require_once ("../session/check_user.php");
-require_once("connect.php");
 
-// instantiation of the class Connection
-$data_connect = new Connection_ADMIN();
-// accessing the connect method
-$data_connect->connect();
+$db = new mysqli("localhost", "root", "ff", "store");
+if ($db->connect_error){
+	die("Erro em aceder a base de dados !");
+	//echo "Erro em aceder a base de dados (" . $db->connect_errno . ")" . $db->connect_error;
+}
+
+// inserting data in database table
+if (isset($_POST['submit_new_app'])){
+	
+	$name_program = $db->real_escape_string(htmlspecialchars($_POST['name_program'], ENT_QUOTES));
+	$features = $db->real_escape_string(htmlspecialchars($_POST['features'], ENT_QUOTES));
+	$congui = $db->real_escape_string(htmlspecialchars($_POST['congui'], ENT_QUOTES));
+	$arch = $db->real_escape_string(htmlspecialchars($_POST['arch'], ENT_QUOTES));
+	$version = $db->real_escape_string(htmlspecialchars($_POST['version'], ENT_QUOTES));
+	$sysop = $db->real_escape_string(htmlspecialchars($_POST['sysop'], ENT_QUOTES));
+	$name_package_x86 = $db->real_escape_string(htmlspecialchars($_POST['name_package_x86'], ENT_QUOTES));
+	$name_package_x64 = $db->real_escape_string(htmlspecialchars($_POST['name_package_x64'], ENT_QUOTES));
+	
+	$db->query("START TRANSACTION");
+	if (!($insert = $db->query("INSERT INTO programs (name,features,consolegui,arch,version,operatingsys,name_package_x86,name_package_x64) VALUES ('{$name_program}','{$features}','{$congui}','{$arch}','{$version}','{$sysop}','{$name_package_x86}','{$name_package_x64}')"))){
+		$db->rollback();
+		echo "Insert operation failed: (" . $db->errno . ") " . $db->error;
+	} else {
+		$db->commit();
+		echo("Sucess!");
+	}
+	$db->close();
+}
 
 nothing();
 is_not_admin();
@@ -88,8 +110,56 @@ generate_new_session_id();
 			<a href="">Google Analytics</a> e <a href="">Google AdSense</a>
             <br>
             <br>
-            Aqui estão apresentadas contas que ainda não foram activadas por um período de 1 mês:
+            
+            <form class="form-signin" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" name="form" id="form">
+                <h2 class="form-signin-heading"></h2>
+                <legend>Nome do programa: </legend>
+                <input type="text" name="name_program" id="name_program" placeholder="nome do programa" required />
+
+                <legend>Features: </legend>
+                <input type="text" name="features" id="features" placeholder="features" required />
+
+                <legend>Consola ou G.U.I.</legend>
+                <select name="congui" id="congui" required />
+                <option value="">Escollhe a opção</option>
+                <option value="Console">Console</option>
+                <option value="G.U.I.">G.U.I.</option>
+                </select>
+                
+                <legend>Arch</legend>
+                <select name="arch" id="arch" required />
+                <option value="">Escollhe a opção</option>
+                <option value="x86">x86</option>
+                <option value="x64">x64</option>
+                </select>
+                
+                <legend>Versão do programa: </legend>
+                <input type="text" name="version" id="version" placeholder="versão do programa" required />
+
+                <legend>Sistemas operativos:</legend>
+                <select name="sysop" id="sysop" required />
+                <option value="">Escollhe a opção</option>
+                <option value="LINUX (Debian, Ubuntu, OpenSUSE, Fedora,...)">LINUX (Debian, Ubuntu, OpenSUSE, ...)</option>
+                <option value="WINDOWS 7 - VISTA - XP">Windows 7 - VISTA - XP </option>
+                <option value="MAC OS X">MAC OS X</option>
+                <option value="LINUX e WINDOWS">LINUX e WINDOWS</option>
+                <option value="LINUX e MAC">LINUX e MAC</option>
+                <option value="MAC e WINDOWS">MAC e WINDOWS</option>
+                </select>
+                
+                <legend>Nome do pacote em formato zip: (programa.zip) (versão x86)</legend>
+                <input type="text" name="name_package_x86" id="name_package_x86" placeholder="nome do programa em zip (versão x86)" />
+                
+                <legend>Nome do pacote em formato zip: (programa.zip) (versão x64)</legend>
+                <input type="text" name="name_package_x64" id="name_package_x64" placeholder="nome do programa em zip (versão x64)" />
+                <br>
+                <br>
+                <p class="text-center"><button class="btn btn-large btn-success" type="submit" name="submit_new_app">Registar programa <i class="icon-envelope icon-white"></i></button></p>
+            </form>
+            
             <?php
+            /*
+            echo ("Aqui estão apresentadas contas que ainda não foram activadas por um período de 1 mês:");
             mysql_query("START TRANSACTION");
             $select = "SELECT * FROM users WHERE DATE_SUB(CURDATE(), INTERVAL 30 DAY) AND active=0";
             $q = mysql_query($select);
@@ -179,7 +249,9 @@ generate_new_session_id();
             mysql_query("COMMIT");
             mysql_free_result($q);
             mysql_close();
-            ?>
+            */?>
+            
+            
         </div> <!-- /container -->
         <?php include ("foot.php"); ?>
         <!-- Le javascript

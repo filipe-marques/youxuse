@@ -35,11 +35,16 @@ $data_connect->connect();
 full();
 
 if (!isset($_GET['lang'])) {
-	//require ("lang/uk.php");
-	idiom_geoip();
+	if (!isset($_COOKIE['lang'])){
+		require ("lang/uk.php");
+	} else {
+		//idiom_geoip();
+		idiom_without_session($_COOKIE['lang']);
+	}
 } else {
-    $la = mysql_escape_string(htmlspecialchars(htmlentities(trim($_GET['lang'])), ENT_QUOTES));
-    idiom_without_session($la);
+	$la = mysql_escape_string(htmlspecialchars(htmlentities(trim($_GET['lang'])), ENT_QUOTES));
+	idiom_without_session($la);
+	setcookie("lang", $la, time()+3600, "youxuse.com");
 }
 
 if (isset($_POST['submit'])) {
@@ -161,7 +166,7 @@ if (isset($_POST['submit'])) {
 
         <div class="container">
             <div class="container">
-
+            
                 <form class="form-signin" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
                     <?php echo LABEL_SIGNIN_TEXT8; ?> <br><a href="signup.php"><?php echo LABEL_SIGNIN_TEXT9; ?></a> <?php echo LABEL_SIGNIN_TEXT10; ?>
                     <h2 class="form-signin-heading"><p class="text-center"><?php echo LABEL_SIGNIN_TEXT11; ?></p></h2>

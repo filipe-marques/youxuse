@@ -22,12 +22,18 @@
  */
 session_name("YouXuse");
 
-require_once("process/functions.php");
+require_once ("session/check_user.php");
+require_once ("process/functions.php");
+require_once ("store.php");
 
 // check if it has session created, if yes search for the strings of country, if no do nothing
 if (session_start()){
 	check_session_idiom();
 }
+
+nothing();
+is_admin();
+generate_new_session_id();
 
 if (!isset($_GET['lang'])) {
 	if (!isset($_COOKIE['lang'])){
@@ -41,7 +47,6 @@ if (!isset($_GET['lang'])) {
 	idiom_without_session($la);
 	setcookie("lang", $la, time()+3600, "youxuse.com");
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -61,7 +66,7 @@ if (!isset($_GET['lang'])) {
             }
 
             .form-signin {
-                max-width: 600px;
+                max-width: 400px;
                 padding: 19px 29px 29px;
                 margin: 0 auto 20px;
                 background-color: #fff;
@@ -100,42 +105,19 @@ if (!isset($_GET['lang'])) {
 
         <?php include ("hf/header.php"); ?>
 
-		<div>
-			<?php 
-				require("pub.php");
-			?>
-		</div>
-		
-		<hr>
-		
         <div class="container">
-
-            <h2><p class="text-center"><?php echo LABEL_WIKI_TEXT1; ?></p></h2>
-
-            <!-- Example row of columns -->
-            <div class="row">
-                <div class="span4">
-                    <h2><?php echo LABEL_WIKI_TEXT2; ?></h2>
-                    <p><?php echo LABEL_WIKI_TEXT3; ?></p>
-                    <p><a class="btn btn-success" href="wikiannou.php?search=DM01"> Youxuse Wiki </a></p>
-                </div>
-                <div class="span4">
-                    <h2><?php echo LABEL_WIKI_TEXT4; ?></h2>
-                    <p><?php echo LABEL_WIKI_TEXT5; ?></p>
-                    <p><a class="btn btn-info" href="user.php?wiki=new"><?php echo LABEL_WIKI_TEXT6; ?> <i class="icon-time icon-white"></i></a></p>
-                </div>
-                <div class="span4">
-                    <h2><?php echo LABEL_WIKI_TEXT7; ?></h2>
-                    <p><?php echo LABEL_WIKI_TEXT8; ?></p>
-                    <p><a class="btn btn-danger" href="user.php?wiki=new"><?php echo LABEL_WIKI_TEXT9; ?></a></p>
-                </div>
-            </div>
+            <div class="container">
             
-			<div>
-				<?php 
-					require("pub.php");
-				?>
-			</div>
+			<?php
+				echo ("<p class=\"lead\">" . LABEL_SUCESS_TEXT1 . "</p>");
+				echo ("<br>");
+				echo ("<p class=\"lead\">" . LABEL_SUCESS_TEXT2 . "</p>");
+				echo ("<br>");
+				echo ("<p class=\"lead\">" . LABEL_SUCESS_TEXT3 . "<a href=\"apps.php\">YouXuse Apps</a>" . LABEL_SUCESS_TEXT4 . "</p>");
+			?>
+            
+            </div> <!-- /container -->
+
             <?php include ("hf/footer.php"); ?>
 
         </div> <!-- /container -->
@@ -156,5 +138,6 @@ if (!isset($_GET['lang'])) {
         <script type="text/javascript" src="resources/js/bootstrap-collapse.js"></script>
         <script type="text/javascript" src="resources/js/bootstrap-carousel.js"></script>
         <script type="text/javascript" src="resources/js/bootstrap-typeahead.js"></script>
+
     </body>
 </html>
