@@ -20,7 +20,15 @@
  * For full reading of the license see the folder "license" 
  * 
  */
+// DEVELOPMENT PURPOSES - DO NOT USE THIS IN PRODUCTION ENVIRONMENT
+//error_reporting(E_ALL);
+//ini_set('display_errors', true);
+//ini_set('html_errors', false);
+//--------------------------------------------------------
+
 session_name("YouXuse");
+
+require_once ("store.php");
 
 require_once ("session/check_user.php");
 require_once ("database/connect.php");
@@ -641,6 +649,9 @@ generate_new_session_id();
 						</td>
 						<td>
 							<a class=\"btn btn-danger\" href=\"user.php?klrt=message\">" . LABEL_USER_TEXT76 . "</a>
+						</td>
+						<td>
+							<a class=\"btn btn-danger\" href=\"user.php?user=leave\">" . LABEL_HEADER_TEXT7 . "</a>
 						</td>
 					</tr>
 					</tbody>

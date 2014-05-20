@@ -52,7 +52,7 @@ if (isset($_POST['submitindividual'])) {
     $datq = date('Y-m-d');
 
     if (strlen($mo) > 60 or strlen($po) > 10 or strlen($fre) > 20 or strlen($con) > 20 or strlen($in) > 10 or strlen($tel) > 9 or strlen($tele) > 9 or strlen($git) > 40 or (!is_numeric($tel)) or (!is_numeric($tele)) or (strlen($tel) < 9) or (strlen($tele) < 9)) {
-        echo ("<div class=\"alert alert-error\"><h2><p class=\"text-center\">" . LABEL_CONTRIBUTE_TEXT1 . "</p></div>");
+        echo ("<br><br><br><div class=\"alert alert-error\"><h2><p class=\"text-center\">" . LABEL_CONTRIBUTE_TEXT1 . "</p></div>");
         echo ("<div class=\"alert alert-error\"><h2><p class=\"text-center\">" . LABEL_CONTRIBUTE_TEXT2 . "</p></div>");
         echo ("<div class=\"alert alert-error\"><h2><p class=\"text-center\">" . LABEL_CONTRIBUTE_TEXT3 . "</p></div>");
     } else {
@@ -61,12 +61,12 @@ if (isset($_POST['submitindividual'])) {
         $consul = mysql_query($sql);
         $num = mysql_affected_rows();
         if (($consul)) {
-            echo ("<div class=\"alert alert-success\"><h2><p class=\"text-center\">" . LABEL_CONTRIBUTE_TEXT4 . " $num " . LABEL_CONTRIBUTE_TEXT5 . "<br>
+            echo ("<br><br><br><div class=\"alert alert-success\"><h2><p class=\"text-center\">" . LABEL_CONTRIBUTE_TEXT4 . " $num " . LABEL_CONTRIBUTE_TEXT5 . "<br>
 				<a href=\"https://www.github.com/filipe-marques/youxuse\">" . LABEL_CONTRIBUTE_TEXT6 . "</a>
 				<br> " . LABEL_CONTRIBUTE_TEXT7 . " <a href=\"user.php?user=developer&contribute=yes\">" . LABEL_CONTRIBUTE_TEXT8 . "</a></p></div>");
             mysql_query("COMMIT");
         } else {
-            echo ("<div class=\"alert alert-error\"><h2>" . LABEL_CONTRIBUTE_TEXT9 . "</h2></div>");
+            echo ("<br><br><br><div class=\"alert alert-error\"><h2>" . LABEL_CONTRIBUTE_TEXT9 . "</h2></div>");
             mysql_query("ROLLBACK");
         }
         mysql_free_result($consul);
@@ -228,9 +228,9 @@ if (isset($_POST['submitindividual'])) {
 					2.3 Outbound License
 					<br><br>
 					As a condition on the grant of rights in Sections 2.1 and 2.2, We agree to license the Contribution 
-					under the terms of the license <a href=\"license.php\">GNU Affero General Public License v3</a> (including any right to
+					under the terms of the license <a href=\"license.php\">GNU Affero General Public License version 3</a> (including any right to
 					adopt any future version of this license) on the Submission Date for the Material.
-					In addition, We use the following license for Media in the Contribution: <a href=\"license.php\">GNU Affero General Public License v3</a>
+					In addition, We use the following license for Media in the Contribution: <a href=\"license.php#freedocumentation\">GNU Free Documentation License version 1.3</a>
 					(including any right to adopt any future version of this license).
 					<br><br>
 					2.4 Moral Rights. If moral rights apply to the Contribution, to the maximum extent permitted by law,

@@ -94,7 +94,7 @@ if (!isset($_GET['lang'])) {
 
             <h3><?php echo LABEL_LICENSE_TEXT1; ?><br></h3>
 
-            <p class="lead">YouXuse&trade;&copy; is Copyright 2013 of Filipe Marques.<br><br>
+            <p class="lead">YouXuse&trade;&copy; is Copyright 2013 - 2014 of Filipe Marques.<br><br>
                 Filipe Marques distributes the YouXuse&trade;&copy; source code
                 under the GNU Affero General Public License, version 3 <br> ("GNU AGPLv3").<br><br>
                 The full text of this licence is given below.<br><br>

@@ -1,8 +1,8 @@
 <?php
-/* This file is part of YouXuse
+/* This file is part of YouXuse - NoStress
  * 
  * <YouXuse - web application to sell & buy componnents of tecnology>
- * Copyright (C) <2013>  <Filipe Marques> <eagle.software3@gmail.com>
+ * Copyright (C) <2013 - 2014>  <Filipe Marques> <eagle.software3@gmail.com>
  *
  * YouXuse is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -30,7 +30,7 @@ is_not_admin();
 
 <div class="container">
     <footer>
-        <p class="text-left">YouXuse&trade; &copy; 2013 v. 2.0.0.</p>
+        <p class="text-left">YouXuse&trade;&copy; - NoStress&trade;&copy; 2013-2014 version 2.5.1 - Codename: <a href="endereço do wikipedia sobre ele">Manuel Forjaz</a></p>
         <p class="text-left">O fundador e criador do site YouXuse é Filipe Marques. Visita&dash;o nas p&aacute;ginas oficiais em <a href=""><img src="../resources/img/glyphicons_382_google_plus.png"></a> e <a href=""><img src="../resources/img/glyphicons_410_facebook.png"></a>.</p>
         <p class="text-left">&Iacute;cones fornecidos por: <a href="http://www.glyphicons.com">Glyphicons</a>, v&ecirc; em mais detalhe na página do projecto YouXuse&trade;&copy;.</p>
     </footer>

@@ -1,8 +1,11 @@
 imagem/
 admin/store.py
+admin/mailer.pyc
 store.py
 store.php
 send.php
 classes/PayPal_IPN.php
 ipn/
 resources/img/img_caroussel/compress.py
+mov.py
+mov.py~

@@ -81,7 +81,8 @@ generate_new_session_id();
                     <a href="operations.php?data=mensagens">mensagens</a>, 
                     <?php //<a href="operations.php?data=contactos">contactos</a>,?> 
                     <a href="operations.php?data=anuncios">anuncios</a>,
-                    <a href="operations.php?data=wiki">wiki</a>
+                    <a href="operations.php?data=wiki">wiki</a>,
+                    <a href="operations.php?data=nostress_desabafo">nostress_desabafo</a>
                 </p>
             </h3>
 
@@ -100,6 +101,9 @@ generate_new_session_id();
                     <tr>
                         <td>
                             <center>Id do Utilizador</center>
+                        </td>
+                        <td>
+                            <center>Nickname</center>
                         </td>
                         <td>
                             <center>Nome do Utilizador</center>
@@ -162,6 +166,7 @@ generate_new_session_id();
                 </thead>");
                     while ($row = mysql_fetch_array($q)) {
                         $id = $row['id'];
+                        $nickname = $row['nickname'];
                         $prim_nome = $row['primeiro_nome'];
                         $ultim_nome = $row['ultimo_nome'];
                         $email = $row['email'];
@@ -184,6 +189,9 @@ generate_new_session_id();
                     <tr>
                         <td>
                             $id
+                        </td>
+                        <td>
+                            $nickname
                         </td>
                         <td>");
                         if ($prim_nome === $admin_nome) {
@@ -580,6 +588,40 @@ generate_new_session_id();
 				}
 			mysql_query("COMMIT");
 			mysql_free_result($q);
+			mysql_free_result($s);
+			mysql_close();
+			}
+			
+			// Tabela: nostress-desabafo
+			if ($get === "nostress_desabafo") {
+				mysql_query("START TRANSACTION");
+				$select = "SELECT * FROM $get";
+				$q = mysql_query($select);
+				if (($q)) {               
+					while ($row = mysql_fetch_array($q)) {
+						$id_nostress = $row['id'];
+						$id_users = $row['users_id1'];
+						$texto = $row['text'];
+						$date = $row['date'];
+						// para obter o id e o nome do utilizador
+						$sq = "SELECT * FROM users WHERE id='$id_users'";
+						$s = mysql_query($sq);
+						if (($s)) {
+							$ro = mysql_fetch_array($s);
+						}
+						echo("<p>Registado por: (id) <a href=\"operations.php?data=users\">".$id_users." - " . $ro['primeiro_nome'] . " " . $ro['ultimo_nome'] . "</a></p>");
+						echo("<p>Texto: ".$texto."</p>");
+						echo("<p>Em: ".$date."</p>");
+						echo("<p><a onclick=\"return confirm('Confirma que vai apagar o registo ?')\"
+									href=\"del.php?table=$get&id=$id_nostress\">Apagar?</a></p>");
+					}
+					if (empty($date) and empty($texto)) {
+						echo ("Não há registos!");
+					}
+				}
+			mysql_query("COMMIT");
+			mysql_free_result($q);
+			mysql_free_result($s);
 			mysql_close();
 			}
 ?>

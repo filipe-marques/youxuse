@@ -1,8 +1,8 @@
 <?php
-/* This file is part of YouXuse
+/* This file is part of YouXuse - NoStress
  * 
  * <YouXuse - web application to sell & buy componnents of tecnology>
- * Copyright (C) <2013>  <Filipe Marques> <eagle.software3@gmail.com>
+ * Copyright (C) <2013 - 2014>  <Filipe Marques> <eagle.software3@gmail.com>
  *
  * YouXuse is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -23,8 +23,6 @@
 require_once ("gravatar/grav.php");
 require_once ("session/check_user.php");
 ?>
-<script src="resources/js/bootstrap-dropdown.js"></script>
-
 <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container">
@@ -33,6 +31,25 @@ require_once ("session/check_user.php");
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
+            <ul class="nav nav-tabs">
+					<li class="active"><a href="http://youxuse.com/youxuse/index.php" title="YouXuse &trade; &copy; Buy & Sell - used parts of hardware">YouXuse</a></li>
+					<li><a href="http://youxuse.com/nostress/index.php" title="A rede social do desabafo, desabafa para mundo, diz o que te preocupa e a comunidade ajuda!">NoStress</a>
+					<?php
+						$size = 20;
+						$ddd = "identicon";
+						$rr = "g";
+						if (isset($_SESSION['prinome'])) {
+							echo("<li><a href=\"user.php?page=initial\" title=\"Definições da tua conta\">" . sexo() . " " . $_SESSION['prinome'] . " " . $_SESSION['ultnome'] . " " . get_gravatar($_SESSION['email'], $size, $ddd, $rr, true, '') . "</a>
+									<li><a href=\"../logout.php\" title=\"Sair com segurança\">Logout</a>");
+						}
+					?>
+					</li>
+					<!--<li><a href=""></a></li>
+					<li><a href=""></a></li>
+					<li><a href=""></a></li>
+					<li><a href=""></a></li>-->
+				</ul>
+				<br><br><br>
             <a class="brand" href="youxuse.php"><img src="resources/img/youxuse.png">&trade;&copy; <i class="icon-thumbs-up icon-white"></i></a>
             <div class="nav-collapse collapse">
                 <ul class="nav"><!-- pôr o domínio do site: http://www.youxuse.com -->
@@ -41,7 +58,7 @@ require_once ("session/check_user.php");
                     <?php
                     if (isset($_SESSION['prinome'])) {
                         echo("<li><a href=\"user.php?user=criaranuncio\">" . LABEL_HEADER_TEXT3 . " <i class=\"icon-upload icon-white\"></i></a></li>");
-                        echo("<li class=\"dropdown\">
+                        /*echo("<li class=\"dropdown\">
                             <a class=\"dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\">" . LABEL_HEADER_TEXT4 . " 
                             <b class=\"caret\"></b><i class=\"icon-wrench icon-white\"></i></a>
                             <ul class=\"dropdown-menu\">
@@ -51,26 +68,26 @@ require_once ("session/check_user.php");
                             <li>
                             <a href=\"user.php?user=anuncios\">" . LABEL_HEADER_TEXT6 . "</a>
                             </li>
-                            <li>
+                            <!--<li>
                             <a href=\"user.php?user=leave\">" . LABEL_HEADER_TEXT7 . "</a>
-                            </li>
+                            </li>-->
                             </ul>
-                            </li>");
+                            </li>");*/
                         echo("<li><a href=\"wiki.php\">" . LABEL_HEADER_TEXT8 . " <i class=\"icon-book icon-white\"></i></a></li>");
                         echo("<li><a href=\"donate.php\">" . LABEL_HEADER_TEXT9 . " <i class=\"icon-heart icon-white\"></i></a></li>");
                     } else {
-                        echo("<li><a href=\"signup.php\">" . LABEL_HEADER_TEXT10 . " <i class=\"icon-plus-sign icon-white\"></i></a></li>");
-                        echo("<li><a href=\"signin.php\">" . LABEL_HEADER_TEXT11 . " <i class=\"icon-play icon-white\"></i></a></li>");
-                        echo("<li><a href=\"wiki.php\">" . LABEL_HEADER_TEXT8 . " <i class=\"icon-book icon-white\"></i></a></li>");
-                        echo("<li><a href=\"donate.php\">" . LABEL_HEADER_TEXT9 . " <i class=\"icon-heart icon-white\"></i></a></li>");
-                        echo("<li><a href=\"contactus.php\">" . LABEL_HEADER_TEXT12 . " <i class=\"icon-envelope icon-white\"></i></a></li>");
+						echo("<li><a href=\"../index.php\">" . LABEL_HEADER_TEXT10 . " <i class=\"icon-plus-sign icon-white\"></i></a></li>");
+						echo("<li><a href=\"../index.php\">" . LABEL_HEADER_TEXT11 . " <i class=\"icon-play icon-white\"></i></a></li>");
+						echo("<li><a href=\"wiki.php\">" . LABEL_HEADER_TEXT8 . " <i class=\"icon-book icon-white\"></i></a></li>");
+						echo("<li><a href=\"donate.php\">" . LABEL_HEADER_TEXT9 . " <i class=\"icon-heart icon-white\"></i></a></li>");
+						echo("<li><a href=\"contactus.php\">" . LABEL_HEADER_TEXT12 . " <i class=\"icon-envelope icon-white\"></i></a></li>");
                     }
 
-                    $size = 20;
-                    $ddd = "identicon";
-                    $rr = "g";
+                    //$size = 20;
+                    //$ddd = "identicon";
+                    //$rr = "g";
 
-                    if (isset($_SESSION['prinome'])) {
+                    /*if (isset($_SESSION['prinome'])) {
 						$all_name = ($_SESSION['prinome'] . " " . $_SESSION['ultnome']);
                         echo("<li class=\"dropdown\">
                             <a class=\"dropdown-toggle\" href=\"user.php?page=initial\">
@@ -78,7 +95,7 @@ require_once ("session/check_user.php");
                             </a>
                             </li>");
                             echo("<li><a href=\"logout.php\">" . LABEL_HEADER_TEXT16 . " <i class=\"icon-user icon-white\"></i></a></li>");
-                    }
+                    }*/
                     ?>
                 </ul>
             </div><!--/.nav-collapse -->
@@ -86,6 +103,9 @@ require_once ("session/check_user.php");
     </div>
 </div>
 <div class="container">
+	<br>
+	<br>
+	<br>
 	<center>
 		<?php // tag like and share?>
 		<iframe src="//www.facebook.com/plugins/like.php?href=https://www.facebook.com/youxuse&amp;width&amp;layout=standard&amp;action=like&amp;show_faces=false&amp;share=true&amp;height=35" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:25px;" allowTransparency="true"></iframe>

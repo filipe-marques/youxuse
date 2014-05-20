@@ -1,8 +1,8 @@
 <?php
-/* This file is part of YouXuse
+/* This file is part of YouXuse - NoStress
  * 
  * <YouXuse - web application to sell & buy componnents of tecnology>
- * Copyright (C) <2013>  <Filipe Marques> <eagle.software3@gmail.com>
+ * Copyright (C) <2013 - 2014>  <Filipe Marques> <eagle.software3@gmail.com>
  *
  * YouXuse is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -40,7 +40,7 @@ if (!isset($_SESSION['conta'])) {
             }
             ?>
         <p class="text-center"><a href="freeopensoft.php"><?php echo LABEL_FOOTER_TEXT1;?></a> - <a href="terms.php"><?php echo LABEL_FOOTER_TEXT2;?></a> - <a href="conduta.php"><?php echo LABEL_FOOTER_TEXT3;?></a> - <a data-toggle="tooltip" title="<?php echo LABEL_FOOTER_TEXT15; ?>" href="user.php?user=developer&contribute=yes"><?php echo LABEL_FOOTER_TEXT4;?><i class="icon-question-sign"></i></a> - <a href="faq.php"><?php echo LABEL_FOOTER_TEXT5;?></a> - <a data-toggle="tooltip" title="<?php echo LABEL_FOOTER_TEXT15; ?>" href="apps.php"><?php echo LABEL_FOOTER_TEXT14;?><i class="icon-question-sign"></i></a></p>
-        <p class="text-left">YouXuse&trade; &copy; 2013 v. 2.0.1 - Codename: Vitoria</p>
+        <p class="text-left">YouXuse&trade;&copy; - NoStress&trade;&copy; 2013-2014 version 2.5.1 - Codename: <a href="http://manuelforjaz.com/">Manuel Forjaz</a></p>
         <p class="text-left"><?php echo LABEL_FOOTER_TEXT6;?> <a href="https://plus.google.com/110434741360705159101"><img src="resources/img/glyphicons_382_google_plus.png"></a> <?php echo LABEL_FOOTER_TEXT7;?> <a href="https://www.facebook.com/profile.php?id=100004437103780"><img src="resources/img/glyphicons_410_facebook.png"></a>.</p>
         <p class="text-left"><?php echo LABEL_FOOTER_TEXT8;?> <a href="license.php">GNU Affero GPL version 3</a></p>
         <p class="text-left"><?php echo LABEL_FOOTER_TEXT9;?> <a href="http://www.glyphicons.com">Glyphicons</a> <?php echo LABEL_FOOTER_TEXT10;?> <a href="freeopensoft.php"><?php echo LABEL_FOOTER_TEXT11;?></a></p>

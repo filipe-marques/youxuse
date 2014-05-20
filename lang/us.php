@@ -470,10 +470,10 @@ define ("LABEL_SIGNUP_TEXT34","Pass mark: 10 characters - Maximum 40 characters"
 define ("LABEL_SIGNUP_TEXT35","Read the Terms of the platform YouXuse&trade;&copy;");
 
 // terms.php
-define ("LABEL_TERMS_TEXT1","Terms of platform/project website YouXuse&trade;&copy; are described below: ");
+define ("LABEL_TERMS_TEXT1","Terms of platform/project website YouXuse&trade;&copy; and NoStress&trade;&copy; are described below: ");
 define ("LABEL_TERMS_TEXT2","Statement of the Terms of platform/project website YouXuse&trade;&copy;");
 define ("LABEL_TERMS_TEXT3","This agreement was written in Portuguese (Portugal). In situations where any translated version of this agreement conflict with the version in Portuguese, is the Portuguese version prevails.");
-define ("LABEL_TERMS_TEXT4","Date of last revision: 1 October 2013.");
+define ("LABEL_TERMS_TEXT4","Date of last revision: 1 May 2014.");
 define ("LABEL_TERMS_TEXT5","This Statement of Terms platform/project website YouXuse&trade;&copy; (\" statement\" , \"Terms\"), are our terms of service that govern our relationship with users and others who interact with the platform YouXuse&trade;&copy;. When you call up or use YouXuse&trade;&copy;, you accept this statement.");
 define ("LABEL_TERMS_TEXT6","Privacy");
 define ("LABEL_TERMS_TEXT7","Your privacy is very important to us.");

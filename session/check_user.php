@@ -49,7 +49,7 @@ function sexo() {
 
 function nothing() {
     if (empty($_SESSION['prinome'])) {
-        header("Location: signin.php");
+        header("Location: ../index.php");
         exit();
     }
 }

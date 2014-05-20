@@ -48,9 +48,9 @@ This project uses the code of conduct of the project [Ubuntu](http://www.ubuntu.
 To contribute to this project, you have to sign a Contributor License Agreement (CLA).
 It's very simple:
 
-1 - Create an account in [Sign up!](http://youxuse.com/signup.php)
+1 - Create an account in [Sign up!](http://youxuse.com/)
 <br>
-2 - [Sign in!](http://youxuse.com/signin.php), into your new account
+2 - [Sign in!](http://youxuse.com/), into your new account
 <br>
 3 - In the Menu, click "Contribute to the project"
 <br>

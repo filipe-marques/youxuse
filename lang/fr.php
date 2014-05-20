@@ -471,10 +471,10 @@ define ("LABEL_SIGNUP_TEXT34","Note de passage : 10 caractères - 40 caractères
 define ("LABEL_SIGNUP_TEXT35","Lire les conditions de la plateforme/site YouXuse&trade;&copy;");
 
 // terms.php
-define ("LABEL_TERMS_TEXT1","Conditions plateforme/site web du projet YouXuse&trade;&copy; sont décrits ci-dessous:");
+define ("LABEL_TERMS_TEXT1","Conditions plateforme/site web du projet YouXuse&trade;&copy; et NoStress&trade;&copy; sont décrits ci-dessous:");
 define ("LABEL_TERMS_TEXT2","Déclaration de la plate-forme Conditions/site web du projet YouXuse&trade;&copy;");
 define ("LABEL_TERMS_TEXT3","Cet accord a été écrit en Portugais (Portugal). Dans les situations où une version traduite de cette convention est incompatible avec la version en portugais, est la version portugaise prévaut.");
-define ("LABEL_TERMS_TEXT4","Date de la dernière révision: 1 Octobre 2013.");
+define ("LABEL_TERMS_TEXT4","Date de la dernière révision: 1 May 2014.");
 define ("LABEL_TERMS_TEXT5","Cette déclaration de Termes plateforme / site web du projet YouXuse&trade;&copy; (\"déclaration\", \"Termes\"), sont nos conditions d'utilisation qui régissent notre relation avec les utilisateurs et autres personnes qui interagissent avec le YouXuse&trade;&copy; plateforme. Lorsque vous appelez ou utilizé YouXuse&trade;&copy;, a accepté cette déclaration.");
 define ("LABEL_TERMS_TEXT6","Protection des données");
 define ("LABEL_TERMS_TEXT7","Votre vie privée est très importante pour nous.");

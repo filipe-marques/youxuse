@@ -63,11 +63,26 @@ def main():
 			</head>
 			<body>
 				<p>Hi! {prime_nome} {ultim_nome}<br>
-				How are you?<br>
-				<h2>You missed some action, this week, in <a href="http://youxuse.com">youxuse.com</a></h2><br>
-				<strong><h3>Check out your account, your annoucements, your messages.</h3><strong><br>
-				Don't forget to spread the word about the website to your friends and give your feedback in the oficial pages in <a href="https://plus.google.com/u/0/b/116778377892072300095">Google+</a> and in <a href="https://www.facebook.com/youxuse">Facebook</a><br>
-				Maybe you need to modify, personalize the hardware of your pc, laptop, netbook, smartphone, don't miss this oportunity to earn money !<br>
+				<h1>Go to <a href="http://youxuse.com/youxuse/index.php">YouXuse</a> and <a href="http://youxuse.com/nostress/index.php">NoStress</a> websites to find out more!</h1><br>
+				<br>
+				<h3>1 - What is the website YouXuse ?<br>
+				The YouXuse website is a website where you can buy or sell used pieces of hardware (computers, laptops, mobile phones, smartphones, printers, monitors, ...) without any
+				percentage of profit on transfer parts.<br>
+				2 - What is the website Nostress ?<br>
+				The Nostress website is a website where you can vent safely through your user account, using a nickname (alias). Other people may not know your nickname, because
+				can know it's you. You can vent at will, trust that it is safe, then you can say bad about someone, you can insult, ... in short you can download and after that you will see how much better you feel !<br>
+				3 - How can I help these websites ?<br>
+				When you reach the website <a href="http://youxuse.com">YouXuse</a> you can make a donation of money, which will be used to support the costs of the website!<br>
+				4 - Why is the website Nostress is on the same website address YouXuse ?<br>
+				The developer and programmer site Filipe Marques, is unemployed and to save money on server and another web address and time, created this open-source system to group websites.
+				<br>
+				5 - There are pages on Facebook and Google+ ?<br>
+				Yes, there are! The page <a href="https://www.facebook.com/youxuse">Facebook</a> and <a href="https://plus.google.com/u/0/b/116778377892072300095">Google+</a><br>
+				Share these pages with your friends!
+				Do not forget that if you need to buy apps you can buy in <a href="http://youxuse.com/youxuse/apps.php">YouXuse Apps</a>
+				</h3>
+				<br>
+				<h2>PLEASE RESEND THIS MESSAGE TO ALL YOUR FRIENDS</h2>
 				</p>
 			</body>
 		</html>
