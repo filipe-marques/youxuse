@@ -1,5 +1,6 @@
 imagem/
 admin/store.py
+admin/store.php
 admin/mailer.pyc
 store.py
 store.php
